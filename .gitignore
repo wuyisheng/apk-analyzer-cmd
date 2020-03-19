@@ -1,3 +1,6 @@
 app.apk
 /out
 *.zip
+.DS_Store
+*.DS_Store
+**/.DS_Store

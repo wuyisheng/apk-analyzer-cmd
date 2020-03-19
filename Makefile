@@ -1,7 +1,7 @@
 decode :
 	@echo "finding app.apk..."
 	rm -rf out&&mkdir out&&rm -rf classes*.zip
-	./tools/apktool -r d app.apk -o out/app
+	./tools/apktool d app.apk -o out/app
 	unzip app.apk -d out/tmp
 	./tools/dex2jar/dex2jar-all.sh
 
