@@ -14,6 +14,14 @@ build :
 	rm out/raw.apk out/align.apk
 	@echo "done! build at out/app.apk"
 
+sign :
+	@echo "sign..."
+	rm -rf out&&mkdir out&&cp app.apk out/raw.apk
+	./tools/zipalign -v -p 4 out/raw.apk out/align.apk
+	./tools/apksigner sign --ks-pass pass:testing --key-pass pass:testing --ks tools/testing.jks --out out/app.apk out/align.apk
+	rm out/raw.apk out/align.apk
+	@echo "done! build at out/app.apk"
+
 install:
 	adb install -r out/app.apk
 
